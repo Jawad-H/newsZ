@@ -12,7 +12,7 @@ function Header() {
     const [everything, setEverything] = useState([]);
     const [bussiness, setBussiness] = useState([]);
     const fetcHeadlines = async () => {
-        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=0e0e6d4d1ee847fa878e9970c951fa69`)
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.REACT_APP_API_KEY}`)
         setDatas(response.data.articles)
     }
 
@@ -21,13 +21,13 @@ function Header() {
         setEverything(response.data.articles)
     }
     const fetchBussiness = async () => {
-        const response = await axios.get('https://newsapi.org/v2/top-headlines/sources?category=business&apiKey=0e0e6d4d1ee847fa878e9970c951fa69')
+        const response = await axios.get(`https://newsapi.org/v2/top-headlines/sources?category=business&apiKey=${process.env.REACT_APP_API_KEY}`)
         setBussiness(response.data.sources);
     }
 
     useEffect(() => {
         fetcHeadlines();
-        fetchEverything(`https://newsapi.org/v2/everything?q=${input}&apiKey=0e0e6d4d1ee847fa878e9970c951fa69`)
+        fetchEverything(`https://newsapi.org/v2/everything?q=${input}&apiKey=${process.env.REACT_APP_API_KEY}`)
         fetchBussiness()
     }, [input]);
 
