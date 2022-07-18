@@ -1,6 +1,5 @@
-import { React, useEffect, useState } from 'react'
+import { React, useState } from 'react'
 import styled from "styled-components";
-import axios from "axios";
 import { BsSearch, BsNewspaper } from "react-icons/bs";
 import useFetch from "./useFetch";
 
